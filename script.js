@@ -1,4 +1,4 @@
 
 function displayMessage() {
-    alert("Your Oder Is Submited !");
-  }
+  alert("Thanks for your interest! Online ordering is not available yet.");
+}
