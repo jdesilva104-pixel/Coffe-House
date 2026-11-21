@@ -58,6 +58,26 @@ nav a:hover, footer a:hover { color: #e2aa6a; }
 .shop-item button:hover { background: #4b2b1c; }
 .shop-item button:active { transform: translateY(1px); }
 
+.order-dialog { width: min(92vw, 34rem); max-height: 90vh; padding: 0; color: #f8f2e9; background: #29231e; border: 1px solid #8a6a50; border-radius: 1rem; box-shadow: 0 1rem 3rem #0009; }
+.order-dialog::backdrop { background: #0009; backdrop-filter: blur(3px); }
+.order-dialog__content { position: relative; max-height: 90vh; overflow-y: auto; padding: clamp(1.25rem, 5vw, 2rem); }
+.order-dialog__close { position: absolute; top: .6rem; right: .8rem; width: 2.5rem; height: 2.5rem; color: #f8f2e9; background: transparent; border: 0; border-radius: 50%; font-size: 1.8rem; cursor: pointer; }
+.order-dialog h2 { margin: 0 2.5rem .4rem 0; }
+.order-product { margin: 0 0 1.2rem; color: #e2aa6a; font-weight: 700; }
+.order-form label { display: grid; gap: .35rem; margin: .85rem 0; font-weight: 700; }
+.order-form label span { font-weight: 400; }
+.order-form input, .order-form textarea { width: 100%; min-height: 2.8rem; padding: .65rem .75rem; color: #241a14; background: #fffaf3; border: 1px solid #9b8069; border-radius: .45rem; font: inherit; }
+.order-form textarea { resize: vertical; }
+.order-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.order-demo-note { color: #d0bdab; font-size: .9rem; }
+.order-primary, .order-secondary { min-height: 2.8rem; padding: .65rem 1rem; border: 0; border-radius: .5rem; font: inherit; font-weight: 700; cursor: pointer; }
+.order-primary { color: #fff; background: #684027; }
+.order-primary:hover { background: #4b2b1c; }
+.order-secondary { color: #f8f2e9; background: #51443a; }
+.order-dialog__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+.order-review__shipping { padding: 1rem; overflow-wrap: anywhere; background: #201a16; border-radius: .5rem; }
+.order-success p { color: #e2d0bd; }
+
 .content { width: min(100% - 2rem, 75rem); margin: 0 auto 2.5rem; }
 .shop-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 .fp, .ws { min-width: 0; padding: clamp(1.25rem, 3vw, 2rem); color: #f8f2e9; background: var(--surface); border: 1px solid #8a6a50; border-radius: 1rem; }
@@ -83,6 +103,7 @@ footer a { color: #f8f2e9; }
   .shop-item img { height: 14rem; }
   .content { width: min(100% - 1.25rem, 75rem); }
   .hero-image { min-height: 24rem; }
+  .order-form__row { grid-template-columns: 1fr; gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
