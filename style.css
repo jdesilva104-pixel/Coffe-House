@@ -1,0 +1,153 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+  }
+
+  header {
+    background-color: rgb(180, 180, 180);
+    color: #1d1d1d;
+    padding: 1px;
+    margin: 1px;
+    text-align: center;
+  }
+  header img{
+    position: absolute;
+    max-width: 75px;
+    margin-left: -45dvw;
+    margin-top: 10px;
+  }
+  header a{
+    color: rgb(236, 236, 236);
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 30px;
+  }
+
+  .hero-image {
+
+    background-image: url('3a0694ed94296bfc5da8939622766a40.jpg');
+    background-size: cover;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .hero-text {
+    background-color: rgba(155, 155, 155, 0.5);
+    padding: 20px;
+    color: rgb(82, 20, 20);
+    border-radius: 20px;
+  }
+  .hero-text p{
+    color: rgb(255, 218, 218);
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  footer a{
+    display: inline;
+    margin-left: 20px;
+    color: whitesmoke;
+    transition: color 0.3s;
+
+  }
+
+  .shop-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.shop-item {
+    background-color: rgb(167, 167, 167);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(209, 209, 209, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.shop-item:hover {
+    transform: scale(1.05);
+    color: #ddd;
+}
+.shop-item img {
+    max-width: 100%;
+    border-bottom: 1px solid #919191;
+    margin-bottom: 10px;
+}
+.shop-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.shop-item p {
+    font-size: 16px;
+    color: #555;
+}
+.shop-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.shop-item button:hover {
+    background-color: #218838;
+}
+
+.shop-details{
+    color: red;
+    display: flex;
+
+}
+.fp{
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    border-style: dotted;
+    border-color: #ddd;
+    border-radius: 50px;
+    animation: pulse 1.5s infinite;
+    background-color: gray;
+    color: whitesmoke;
+
+}
+.ws{
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    border-style: dotted;
+    border-color: #ddd;
+    border-radius: 50px;
+    background-color: gray;
+    color: whitesmoke;
+}
