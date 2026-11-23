@@ -25,6 +25,12 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="account-actions">
+      <button type="button" class="account-button" data-auth-open="signin">Sign in</button>
+      <button type="button" class="account-button account-button--primary" data-auth-open="signup">Sign up</button>
+      <span class="account-user" hidden></span>
+      <button type="button" class="account-button" data-auth-signout hidden>Sign out</button>
+    </div>
   </header>
 
   <!-- Image Section -->
@@ -134,7 +140,10 @@
     </div>
 </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="orders.js" defer></script>
+  <script src="auth.js" defer></script>
 
 </body>
 </html>

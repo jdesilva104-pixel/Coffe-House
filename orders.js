@@ -1,5 +1,8 @@
-const orderDialog = document.createElement('dialog');
+const orderDialog = document.createElement('div');
 orderDialog.className = 'order-dialog';
+orderDialog.hidden = true;
+orderDialog.setAttribute('role', 'dialog');
+orderDialog.setAttribute('aria-modal', 'true');
 orderDialog.setAttribute('aria-labelledby', 'order-title');
 orderDialog.innerHTML = `
   <div class="order-dialog__content">
@@ -40,6 +43,12 @@ const orderReview = orderDialog.querySelector('.order-review');
 const orderSuccess = orderDialog.querySelector('.order-success');
 let selectedProduct = '';
 let selectedPrice = '';
+let previouslyFocusedElement = null;
+
+function closeOrderDialog() {
+  orderDialog.hidden = true;
+  if (previouslyFocusedElement) previouslyFocusedElement.focus();
+}
 
 document.addEventListener('click', (event) => {
   const button = event.target.closest('.order-button');
@@ -48,12 +57,14 @@ document.addEventListener('click', (event) => {
   const item = button.closest('.shop-item');
   selectedProduct = item.querySelector('h3').textContent.trim();
   selectedPrice = item.querySelector('p').textContent.trim();
-  orderDialog.querySelector('.order-product').textContent = `${selectedProduct} — ${selectedPrice}`;
+  orderDialog.querySelector('.order-product').textContent = `${selectedProduct} - ${selectedPrice}`;
   orderForm.hidden = false;
   orderReview.hidden = true;
   orderSuccess.hidden = true;
   orderForm.reset();
-  orderDialog.showModal();
+  previouslyFocusedElement = button;
+  orderDialog.hidden = false;
+  orderForm.querySelector('input').focus();
 });
 
 orderForm.addEventListener('submit', (event) => {
@@ -68,7 +79,7 @@ orderForm.addEventListener('submit', (event) => {
   const phone = details.get('phone').trim();
   const notes = details.get('notes').trim();
 
-  orderReview.querySelector('.order-review__product').textContent = `${selectedProduct} — ${selectedPrice}`;
+  orderReview.querySelector('.order-review__product').textContent = `${selectedProduct} - ${selectedPrice}`;
   orderReview.querySelector('.order-review__shipping').textContent =
     `Deliver to ${name} at ${address}. Phone: ${phone}.${notes ? ` Note: ${notes}` : ''}`;
   orderForm.hidden = true;
@@ -78,7 +89,7 @@ orderForm.addEventListener('submit', (event) => {
 
 orderDialog.addEventListener('click', (event) => {
   if (event.target === orderDialog || event.target.closest('.order-dialog__close')) {
-    orderDialog.close();
+    closeOrderDialog();
     return;
   }
 
@@ -91,6 +102,10 @@ orderDialog.addEventListener('click', (event) => {
     orderSuccess.hidden = false;
     orderSuccess.querySelector('button').focus();
   } else if (action === 'done') {
-    orderDialog.close();
+    closeOrderDialog();
   }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !orderDialog.hidden) closeOrderDialog();
 });
